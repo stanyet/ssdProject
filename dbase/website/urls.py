@@ -33,5 +33,8 @@ urlpatterns = [
  url(r'^password-reset/complete/$',
  password_reset_complete,
  name='password_reset_complete'),
+ url(r'^index/$', views.index, name='index'),
  url(r'^register/$', views.register, name='register'),
+ url(r'^about/$', views.about, name='about'),
+
 ]

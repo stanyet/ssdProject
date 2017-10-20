@@ -46,3 +46,9 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
     return render(request,'account/register.html',{'user_form': user_form})
+
+def index(request):
+    return render(request,'account/index.html')
+
+def about(request):
+    return render(request,'account/about.html')
