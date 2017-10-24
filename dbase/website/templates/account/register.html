@@ -1,12 +1,18 @@
 {% extends "base.html" %}
 {% block title %}Create an account{% endblock %}
 {% block content %}
-<h1>Create an account</h1>
-<p>Please, sign up using the following form:</p>
-
+<script>
+function removeHelpText() {
+  var parent = document.getElementsByClassName("registration-form")[0];
+  var child = document.getElementByClassName("helptext");
+  parent.removeChild(child);
+}
+</script>
+<div class="registration-form" onload="removeHelpText()">
 <form action="." method="post">
     {{ user_form.as_p }}
     {% csrf_token %}
     <p><input type="submit" value="Create my account"></p>
 </form>
+</div>
 {% endblock %}

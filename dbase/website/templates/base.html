@@ -2,58 +2,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script>
-  $('.btn-search').click(function(){
-  $('.searchbar').toggleClass('clicked');
-  $('.stage').toggleClass('faded');
-
-
-if($('.searchbar').hasClass('clicked')){
-  $('.btn-extended').focus();
-}
-
-});
- </script>
   <title>Home Page</title>
-  <link href="{% static "css/index.css" %}" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="{% static "css/base.css" %}" rel="stylesheet">
   </head>
 <body>
   <div class="header">
-    <ul>
-      <li class="active"><a href="{% url "index" %}">Home</a></li>
-      <li><a href="{% url "register" %}">Sign Up</a></li>
-      <li><a href="{% url "login" %}">Login</a></li>
-      <li><a href="#">About</a></li>
-    </ul>
-  </div>
-
-  <div id="header">
-  {% if request.user.is_authenticated %}
-  <ul class="menu">
-  <li {% if section == "dashboard" %}class="selected"{% endif %}>
-  <a href="{% url "dashboard" %}">My dashboard</a>
-  </li>
-  <li {% if section == "profile" %}class="selected"{% endif %}>
-  <a href="#">Profile</a>
-  </li>
-  <li {% if section == "appointments" %}class="selected"{% endif %}>
-  <a href="#">Appointments</a>
-  </li>
-  </ul>
-  {% endif %}
-  <span class="user">
-  {% if request.user.is_authenticated %}
-  Hello {{ request.user.first_name }},
-  <a href="{% url "logout" %}">Logout</a>
-  {% else %}
-  <a href="{% url "login" %}">Log-in</a>
-  {% endif %}
-  </span>
-  </div>
+    <a class="topElements" href="{% url "index" %}">Home</a>
+    <a class="topElements" href="{% url "login" %}">Login</a>
+    <a class="topElements" href="{% url "register" %}">Sign Up</a>
+    <a class="topElements" href="#">About</a>
+</div>
 <div id="content">
 {% block content %}
 {% endblock %}
+</div>
+<div class="footer">
 </div>
 </body>
 </html>
