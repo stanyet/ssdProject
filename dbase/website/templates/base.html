@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Page</title>
+  <link href="{% static "css/base.css" %}" rel="stylesheet">
+<style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+header, footer {
+    padding: 3em;
+    color: white;
+    background-color: #C63D0F;
+    clear: left;
+    text-align: center;
+}
+htitle {
+  padding:10;
+  width:100%;
+}
+</style>
+
+</head>
+<body>
+  <div class="container">
+<htitle>
+      <h1 style="color:#C63D0F; background-color: yellow">Health Bridge</h1>
+</htitle>
+<header>
+    <a class="topElements" href="{% url "index" %}">Home</a>
+    <a class="topElements" href="{% url "login" %}">Login</a>
+    <a class="topElements" href="{% url "register" %}">Sign Up</a>
+    <a class="topElements" href="{% url "about"%}">About</a>
+</header>
+<div id="content">
+{% block content %}
+{% endblock %}
+</div>
+<footer>
+</footer>
+</body>
+</html>
