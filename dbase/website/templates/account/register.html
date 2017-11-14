@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+<<<<<<< HEAD
 
 {% block title %}Create an account{% endblock %}
 
@@ -17,6 +18,10 @@ body{
 }
 </style>
 
+=======
+{% block title %}Create an account{% endblock %}
+{% block content %}
+>>>>>>> master
 <script>
 function removeHelpText() {
   var parent = document.getElementsByClassName("registration-form")[0];
@@ -24,17 +29,26 @@ function removeHelpText() {
   parent.removeChild(child);
 }
 </script>
+<<<<<<< HEAD
 
 <body >
   <h1><br></h1>
+=======
+>>>>>>> master
 <div class="registration-form" onload="removeHelpText()">
 <form action="." method="post">
     {{ user_form.as_p }}
     {% csrf_token %}
+<<<<<<< HEAD
     <p class="pad" ><input type="submit" value="Create my account"></p>
 
 </form>
 </div>
 </body>
 </html>
+=======
+    <p><input type="submit" value="Create my account"></p>
+</form>
+</div>
+>>>>>>> master
 {% endblock %}

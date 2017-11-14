@@ -4,6 +4,7 @@
 <head>
   <title>Home Page</title>
   <link href="{% static "css/base.css" %}" rel="stylesheet">
+<<<<<<< HEAD
 <style>
 div.container {
     width: 100%;
@@ -34,11 +35,30 @@ htitle {
     <a class="topElements" href="{% url "register" %}">Sign Up</a>
     <a class="topElements" href="{% url "about"%}">About</a>
 </header>
+=======
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+<body>
+  <div class="header">
+    <a class="topElements" href="{% url "index" %}">Home</a>
+    <a class="topElements" href="{% url "login" %}">Login</a>
+    <a class="topElements" href="{% url "register" %}">Sign Up</a>
+    <a class="topElements" href="#">About</a>
+</div>
+>>>>>>> master
 <div id="content">
 {% block content %}
 {% endblock %}
 </div>
+<<<<<<< HEAD
 <footer>
 </footer>
+=======
+<div class="footer">
+</div>
+>>>>>>> master
 </body>
 </html>
