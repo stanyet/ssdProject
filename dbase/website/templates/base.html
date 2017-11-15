@@ -10,7 +10,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 <body>
-<<<<<<< HEAD
 
   <div class="header">
     {% if user.is_authenticated %}
@@ -26,22 +25,11 @@
     {% endif %}
 
 </div>
-=======
-  <div class="container">
-
-<header>
-  <a class="topElements" href="{% url "index" %}">Home</a>
-  <a class="topElements" href="{% url "login" %}">Login</a>
-  <a class="topElements" href="{% url "register" %}">Sign Up</a>
-  <a class="topElements" href="{% url "about"%}">About</a>
-</header>
->>>>>>> d9b7537336410842b8dfa5566f8835f8440598b6
 <div id="content">
 {% block content %}
 {% endblock %}
 </div>
 <div class="footer">
 </div>
-
 </body>
 </html>
