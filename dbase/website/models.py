@@ -10,7 +10,7 @@ class Profile(models.Model):
     BIRTH_YEAR_CHOICES = range(1970,2018)
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
-    birth_year = models.DateField(auto_now=False, auto_now_add=False,blank=True, null=True)
+    birth_year = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
 
 
     def __str__(self):

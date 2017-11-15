@@ -10,11 +10,20 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 <body>
+
   <div class="header">
-    <a class="topElements" href="{% url "index" %}">Home</a>
-    <a class="topElements" href="{% url "login" %}">Login</a>
-    <a class="topElements" href="{% url "register" %}">Sign Up</a>
-    <a class="topElements" href="#">About</a>
+    {% if user.is_authenticated %}
+      <a class="topElements" href="#">My Appointments</a>
+      <a class="topElements" href="#">My HealthRecords</a>
+      <a class="topElements" href="#">View/Update Profile</a>
+      <a class="topElements" href="#">Change Password</a>
+      <a class="topElements" href="{% url "logout" %}">Logout</a>
+    {% else %}
+      <a class="topElements" href="{% url "index" %}">Home</a>
+      <a class="topElements" href="{% url "login" %}">Login</a>
+      <a class="topElements" href="{% url "register" %}">Sign Up</a>
+    {% endif %}
+
 </div>
 <div id="content">
 {% block content %}
