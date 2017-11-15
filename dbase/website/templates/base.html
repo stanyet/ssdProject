@@ -16,7 +16,7 @@
       <a class="topElements" href="#">My Appointments</a>
       <a class="topElements" href="#">My HealthRecords</a>
       <a class="topElements" href="#">View/Update Profile</a>
-      <a class="topElements" href="#">Change Password</a>
+      <a class="topElements" href="{% url "password_change" %}">Change Password</a>
       <a class="topElements" href="{% url "logout" %}">Logout</a>
     {% else %}
       <a class="topElements" href="{% url "index" %}">Home</a>

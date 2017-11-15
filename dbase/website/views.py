@@ -5,6 +5,8 @@ from .forms import LoginForm, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
 
+def home(request):
+    return render(request,'account/index.html')
 
 def user_login(request):
     if request.method == 'POST':
@@ -16,8 +18,7 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Authenticated '\
-                            'successfully')
+                    return render(request,'account/dashboard.html',{'section': 'dashboard'})
             else:
                 return HttpResponse('Disabled account')
         else:
