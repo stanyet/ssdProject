@@ -8,6 +8,7 @@
     {% else %}
     {% endif %}
     <div class="login-form">
+      <h1><br></h1>
         <form action="{% url "login" %}" method="post">
             {{ form.as_p }}
             {% csrf_token %}
