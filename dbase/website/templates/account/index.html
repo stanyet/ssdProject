@@ -3,9 +3,21 @@
 {% block title %}Index{% endblock %}
 
 {% block content %}
-<div id="locationField">
+<!--<div id="locationField">
   <input id="autocomplete" placeholder="Enter Speciality or Your current Address"
          onFocus="geolocate()" type="text"></input>
+</div>-->
+<div class="row">
+  <div class="col-lg-3 center-block">
+    <div class="input-group">
+      <input id="autocomplete" type="text" class="form-control" placeholder="Enter Speciality or Your current Address" onfocus="geolocate()">
+      <span class="input-group-btn">
+             <button class="btn btn-default" type="button">Go!</button>
+         </span>
+    </div>
+    <!-- /input-group -->
+  </div>
+  <!-- /.col-lg-6 -->
 </div>
 <script>
 var placeSearch, autocomplete;

@@ -8,28 +8,37 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
+</head>
 <body>
 
-  <div class="header">
+  <!--<div class="header">-->
+ <nav class="navbar navbar-inverse navbar-toggleable-md navbar-light bg-faded">
+  <div class="container-fluid">
     {% if user.is_authenticated %}
-      <a class="topElements" href="#">My Appointments</a>
-      <a class="topElements" href="#">My HealthRecords</a>
-      <a class="topElements" href="{% url "edit" %}">View/Update Profile</a>
-      <a class="topElements" href="{% url "password_change" %}">Change Password</a>
-      <a class="topElements" href="{% url "logout" %}">Logout</a>
+      <ul class="nav navbar-nav">
+      <li><a class="topElements" href="#">My Appointments</a></li>
+      <li><a class="topElements" href="#">My HealthRecords</a></li>
+     <li><a class="topElements" href="{% url "edit" %}">View/Update Profile</a></li> 
+      <li><a class="topElements" href="{% url "password_change" %}">Change Password</a></li>
+      <li><a class="topElements" href="{% url "logout" %}">Logout</a></li>
+      </ul>
     {% else %}
-      <a class="topElements" href="{% url "index" %}">Home</a>
-      <a class="topElements" href="{% url "login" %}">Login</a>
-      <a class="topElements" href="{% url "register" %}">Sign Up</a>
+       <ul class="nav navbar-nav">
+      <li><a class="topElements" href="{% url "index" %}">Home</a></li>
+       </ul>
+     
+      <ul class="nav navbar-nav navbar-right">
+      <li><a class="topElements" href="{% url "login" %}"><span class="glyphicon glyphicon-log-in" id="login"></span>Login</a></li>
+      <li><a class="topElements" href="{% url "register" %}"><span class="glyphicon glyphicon-user" id="signup"></span>Sign Up</a></li>
+      </ul>
     {% endif %}
 
-</div>
+  </div>
+  </nav>
 <div id="content">
 {% block content %}
 {% endblock %}
 </div>
-<div class="footer">
-</div>
 </body>
 </html>
+
