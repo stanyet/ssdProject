@@ -3,20 +3,38 @@
 {% block title %}Log-in{% endblock %}
 
 {% block content %}
+
     {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
     {% else %}
     {% endif %}
-    <div class="login-form">
-      <h1><br></h1>
-        <form action="{% url "login" %}" method="post">
-            {{ form.as_p }}
-            {% csrf_token %}
-            <input class="test" type="hidden" name="next" value="{{ next }}" />
-            <p><input type="submit" value="Login"></p>
-        </form>
-        <p><a href="{% url "password_reset" %}">Forgotten your password?</a></p>
+    <div class="container login-box">
+        <h2>Log In or Create an Account</h2>
+            <div class="col-sm-6 login-box-div">
+                <form action="{% url "login" %}" method="post">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <input class="test" type="hidden" name="next" value="{{ next }}" />
+                    <p><input type="submit" value="Login"></p>
+                </form>
+                <p><a href="{% url "password_reset" %}">Forgotten your password?</a></p>
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <h2>Don't have an Account yet?</h2>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                    <br>
+                    <h2>Having an account lets you...</h2>
+                    <h4><ul class="bulleted-list">
+                        <li>Check Availability of a Doctor</li>
+                        <li>Book an Appointment Online</li>
+                        <li>Keep a Track of the Treatments</li>
+                        <li>Have all the Medical Records Handy</li>
+                    </ul></h4>
+                </div>
+                </div>
+          </div>
     </div>
-
 
 {% endblock %}

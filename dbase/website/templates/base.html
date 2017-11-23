@@ -8,36 +8,51 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../static/css/base.css">
 </head>
 <body>
 
   <!--<div class="header">-->
- <nav class="navbar navbar-inverse navbar-toggleable-md navbar-light bg-faded" style="background-color:#167C80;">
-  <div class="container-fluid">
-    {% if user.is_authenticated %}
-      <ul class="nav navbar-nav">
-      <li><a class="topElements" href="#">My Appointments</a></li>
-      <li><a class="topElements" href="#">My HealthRecords</a></li>
-     <li><a class="topElements" href="{% url "edit" %}">View/Update Profile</a></li>
-      <li><a class="topElements" href="{% url "password_change" %}">Change Password</a></li>
-      <li><a class="topElements" href="{% url "logout" %}">Logout</a></li>
-      </ul>
-    {% else %}
-       <ul class="nav navbar-nav">
-      <li><a class="topElements" href="{% url "index" %}">Home</a></li>
-       </ul>
+  <div class="container">
+        <div class="mynavbar">
+          <nav class="navbar navbar-inverse" style="background-color:#167C80;">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+                            <span class="sr-only">Toggle navigation</span>
+                        </button>
+                        <a class="navbar-brand"><img src="../static/images/logo1.png" alt="Giatros Logo"></a>
+                    </div>
+                    <div id="navbar3" class="navbar-collapse collapse">
+                            {% if user.is_authenticated %}
+                              <ul class="nav navbar-nav">
+                                <li><a class="topElements" href="#">My Appointments</a></li>
+                                <li><a class="topElements" href="#">My HealthRecords</a></li>
+                                <li><a class="topElements" href="{% url "edit" %}">View/Update Profile</a></li>
+                                <li><a class="topElements" href="{% url "password_change" %}">Change Password</a></li>
+                                <li><a class="topElements" href="{% url "logout" %}">Logout</a></li>
+                              </ul>
+                            {% else %}
+                              <ul class="nav navbar-nav">
+                                <li><a class="topElements" href="{% url "index" %}">Home</a></li>
+                              </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-      <li><a class="topElements" href="{% url "login" %}"><span class="glyphicon glyphicon-log-in" id="login"></span>Login</a></li>
-      <li><a class="topElements" href="{% url "register" %}"><span class="glyphicon glyphicon-user" id="signup"></span>Sign Up</a></li>
-      </ul>
-    {% endif %}
+                              <ul class="nav navbar-nav navbar-right">
+                                  <li><a class="topElements" href="{% url "login" %}"><span class="glyphicon glyphicon-log-in" id="login"></span>Login</a></li>
+                                  <li><a class="topElements" href="{% url "register" %}"><span class="glyphicon glyphicon-user" id="signup"></span>Sign Up</a></li>
+                              </ul>
+                            {% endif %}
 
-  </div>
-  </nav>
+                    </div>
+                  </nav>
+</div>
+<br>
+<br>
+
 <div id="content">
 {% block content %}
 {% endblock %}
 </div>
+  <script src="../static/Javascript/carousel.js"></script>
 </body>
 </html>
