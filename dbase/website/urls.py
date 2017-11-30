@@ -13,7 +13,7 @@ from . import views
 urlpatterns = [
 # post views
 #url(r'^login/$', views.user_login, name='login'),
- url(r'^login/$', login, name='login'),
+ url(r'^login/$', views.user_login, name='login'),
  url(r'^logout/$', logout, name='logout'),
  url(r'^logout-then-login/$', logout_then_login, name='logout_then_login'),
  url(r'^dashboard$', views.dashboard, name='dashboard'),
@@ -29,4 +29,8 @@ urlpatterns = [
  url(r'^register/$', views.register, name='register'),
  url(r'^about/$', views.about, name='about'),
  url(r'^edit/$', views.edit, name='edit'),
+ url(r'^viewApps/$', views.my_apps, name='my_apps'),
+ url(r'^viewDocApps/$', views.my_doc_apps, name='doc_apps'),
+ url(r'^makeAppointment/(?P<pk>\d+)/$', views.make_appointment, name='makeAppointment'),
+ url(r'^deleteAppointment/(?P<pk>\d+)/$', views.delete_appointment, name='deleteAppointment')
 ]

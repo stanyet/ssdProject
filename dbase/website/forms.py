@@ -1,9 +1,32 @@
 from django import forms
+import datetime
+from django.forms.extras.widgets import SelectDateWidget
 from .models import User, Profile
+import random
+
+
+
 
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+
+class appointmentForm(forms.Form):
+    slots = [
+    ('9:30', '9:30'),
+    ('10:30', '10:30'),
+    ('11:30', '11:30'),
+    ('12:30', '12:30'),
+    ('1:30', '1:30'),
+    ('2:30', '2:30'),
+    ('3:30', '3:30'),
+    ('4:30', '4:30'),
+    ('5:30', '5:30'),
+    ('6:30', '6:30'),
+    ]
+    scheduled_date = forms.DateField(widget=SelectDateWidget)
+    scheduled_time = forms.ChoiceField(choices=slots)
+
 
 class SearchForm(forms.Form):
     search = forms.CharField(label='',widget=forms.Textarea(attrs={'rows': 1, 'cols': 40}))

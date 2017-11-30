@@ -9,11 +9,11 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
- <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/css/bootstrap-material-design.min.css" integrity="sha384-R80DC0KVBO4GSTw+wZ5x2zn2pu4POSErBkf8/fSFhPXHxvHJydT0CSgAP2Yo2r4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/css/bootstrap-material-design.min.css" integrity="sha384-R80DC0KVBO4GSTw+wZ5x2zn2pu4POSErBkf8/fSFhPXHxvHJydT0CSgAP2Yo2r4I" crossorigin="anonymous">
   <!-- embedded css -->
   <style media="screen">
     #logo-banner{
-      background-image: url("{% static   'images/volunteer.png' %}" );
+      background-image: url("{% static 'images/volunteer.png' %}" );
       height: 23vmin;
     }
     #header-title{
@@ -31,10 +31,10 @@
 
 </head>
 <body>
-  <div class="container-fluid" id="logo-banner">
+<div class="container-fluid" id="logo-banner" style="background: #283048">
 
      <h1 style=" text-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);" class="lead" id="header-title">GIATROS</h1>
-  </div>
+</div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,12 +43,17 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-      {% if user.is_authenticated %}
+        {% if amIdoc %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "doc_apps" %}">Upcoming Appointments</a>
+        </li>
+        {% endif %}
+        {% if user.is_authenticated and not amIdoc %}
         <li class="nav-item">
           <a class="nav-link" href="{% url "index" %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">My Appointments</a>
+          <a class="nav-link" href="{% url "my_apps" %}">My Appointments</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">My HealthRecords</a>
@@ -56,11 +61,13 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url "edit" %}">My Profile</a>
         </li>
-      {% else %}
+      {% endif %}
+      {% if not user.is_authenticated %}
       <li class="nav-item">
         <a class="nav-link" href="{% url "index" %}">Home</a>
       </li>
       {% endif %}
+
       </ul>
 
        <ul class="nav navbar-nav navbar-right">

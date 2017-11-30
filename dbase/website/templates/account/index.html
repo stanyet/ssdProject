@@ -3,6 +3,11 @@
 {% block title %}Index{% endblock %}
 
 {% block content %}
+<script>
+function notPossible(){
+  alert("The selected Doctor is not registered with our system");
+}
+</script>
 <div class="row">
   <div class="col-lg-3 center-block">
     <div class="input-group">
@@ -16,6 +21,8 @@
   </div>
   <!-- /.col-lg-6 -->
 </div>
+
+
 {% for doctor in doctors %}
 <div class="w-75 mx-auto">
   <div style=" box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);"
@@ -26,16 +33,20 @@
     <p class="card-text" float="right">
       <img border="1" style="float: right; margin-right: 15px" src="https://picsum.photos/200/300?image={{ doctor.digit }}" width="200" height="200">
     </p>
-    <h4 class="card-title text-info">{{ doctor.fullname }}</h4>
+    <h4 class="card-title text-info">{{ doctor.user.first_name }} {{ doctor.user.last_name }}</h4>
     <p class="card-text">Organization:{{ doctor.organization }}</p>
     <p class="card-text">Specialization:{{ doctor.specialization }}</p>
     <p class="card-text">Insurance Accepted:{{ doctor.insurance }}</p>
     <p class="card-text">Rating:{{ doctor.rating }}</p>
-    <a style="text-dark" href="#" class="btn btn-raised active btn-info">Make an Appointment</a>
+    {% if doctor.digit > 0 %}
+    <a style="text-dark" href="#" onclick="notPossible()" class="btn btn-raised active btn-info">Make an Appointment</a>
+    {% else %}
+    <a style="text-dark" href="{% url 'makeAppointment' doctor.id_num %}" class="btn btn-raised active btn-info">Make an Appointment</a>
+    {% endif %}
     </p>
   </div>
 </div>
 <br>
 </div>
-{% endfor %}
+ {% endfor %}
 {% endblock %}

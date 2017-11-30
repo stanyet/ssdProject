@@ -32,6 +32,7 @@ class dummyDoctor(models.Model):
 
 class Doctor(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
+    id_num = models.IntegerField(blank=False, null=False, primary_key=True,default=1)
     organization = models.CharField(max_length=250)
     specialization = models.CharField(max_length=250,default=None)
     insurance = models.CharField(max_length=250,default=None)
@@ -42,3 +43,11 @@ class Doctor(models.Model):
 
     def __str__(self):
         return str(self.user.username)
+
+class appointment(models.Model):
+    patient = models.ForeignKey(Profile, on_delete=models.CASCADE,default=None)
+    doc = models.ForeignKey(Doctor, on_delete=models.CASCADE,default=None)
+    scheduled_date = models.DateField(null=True, blank=True)
+    scheduled_time = models.TimeField(auto_now=False, auto_now_add=False,null=True, blank=True)
+    status = models.CharField(max_length=250,default=None)
+    #date = application_data.scheduled_at.date()
