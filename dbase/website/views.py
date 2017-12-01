@@ -189,6 +189,7 @@ def about(request):
 @login_required
 def make_appointment(request, pk):
     appointment_form =appointmentForm()
+    search_form = SearchForm(auto_id=False)
     if request.method == "POST":
         form = appointmentForm(request.POST)
         if form.is_valid():
@@ -196,6 +197,7 @@ def make_appointment(request, pk):
             time = form.cleaned_data['scheduled_time']#Search Term
             app = appointment(patient = Profile.objects.all().filter(user=request.user)[0], doc = Doctor.objects.all().filter(id_num=pk)[0], scheduled_date = date, scheduled_time = time, status = 'Upcoming')
             app.save()
+            return render(request,'account/index.html',{'search_form': search_form})
     else:
         print("The filtered result is:",Doctor.objects.all().filter(id_num=pk))
     return render(request,'account/makeAppointment.html',{'doctor':Doctor.objects.all().filter(id_num=pk)[0],'appointment_form': appointment_form})

@@ -29,6 +29,11 @@
     }
   </style>
   <script>
+    function status(){
+      alert("Appointment Successful!")
+    }
+  </script>
+  <script>
 
     function initMap() {
       var myLatLng = {lat: 41.2735161, lng: -95.9713322};
@@ -63,7 +68,7 @@
           <p class="card-text">
             {{ appointment_form.as_p }}
            {% csrf_token %}
-         <button type="submit" class="save btn btn-default">Save</button>
+         <button type="submit" onclick="status()" class="save btn btn-default">Save</button>
         </form>
         </p>
       </div>

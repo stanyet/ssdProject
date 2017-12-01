@@ -8,19 +8,27 @@ function notPossible(){
   alert("The selected Doctor is not registered with our system");
 }
 </script>
-<div class="row">
-  <div class="col-lg-3 center-block">
-    <div class="input-group">
-       <form action="." method="post" enctype="multipart/form-data">
-          {{ search_form.as_p }}
+
+<div class="row" style="text-align: center">
+   <div class="col-sm-4">
+     <div class="form-group">
+          <form action="." method="post" enctype="multipart/form-data">
           {% csrf_token %}
-          <input type="submit" value="Go">
+          <div class="form-group">
+            {{ search_form.attribute }}
+          </div>
+          <div class="form-group">
+            {{ search_form.search }}
+          </div>
+         </div>
+          <input class="btn btn-raised btn-success text-center" type="submit" value="Search">
+        </div>
       </form>
-    </div>
-    <!-- /input-group -->
-  </div>
-  <!-- /.col-lg-6 -->
-</div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
 
 
 {% for doctor in doctors %}

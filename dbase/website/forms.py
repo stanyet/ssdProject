@@ -29,8 +29,8 @@ class appointmentForm(forms.Form):
 
 
 class SearchForm(forms.Form):
-    search = forms.CharField(label='',widget=forms.Textarea(attrs={'rows': 1, 'cols': 40}))
-    attribute = forms.CharField(label='',widget=forms.Textarea(attrs={'rows': 1, 'cols': 15}))
+    search = forms.CharField(label='',widget=forms.TextInput(attrs={'rows': 1, 'cols': 30, 'placeholder':'Address'}))
+    attribute = forms.CharField(label='',widget=forms.TextInput(attrs={'rows': 1, 'cols': 15, 'placeholder':'Filter'}))
 
 class UserRegistrationForm(forms.ModelForm):
 
